@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "description": "Backend module for hubisotool",
+  "main": "backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://sbishaka@bitbucket.org/hubisotool/backend.git"
+  },
+  "keywords": [
+    "hubisotool"
+  ],
+  "author": "= <=>",
+  "license": "N/A",
+  "dependencies": {
+    "bluebird": "^2.10.2",
+    "node-notifier": "^4.3.1"
+  }
+}
