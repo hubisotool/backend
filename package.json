@@ -17,6 +17,6 @@
   "license": "N/A",
   "dependencies": {
     "bluebird": "^2.10.2",
-    "nw-notify": "^0.2.2"
+    "nw-notify": "git://github.com/ghostfreak3000/nw-notify.git"
   }
 }
