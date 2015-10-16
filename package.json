@@ -17,6 +17,6 @@
   "license": "N/A",
   "dependencies": {
     "bluebird": "^2.10.2",
-    "node-notifier": "^4.3.1"
+    "nw-notify": "^0.2.2"
   }
 }

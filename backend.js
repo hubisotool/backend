@@ -1,16 +1,18 @@
 var Promise = require('bluebird'),
-    notifier = require('node-notifier'),
+    notifier = require('nw-notify'),
     backend = module.exports = {};
 
+    notifier.setConfig({
+        displayTime: 6000
+    });
 
 backend.alert = function(opts){
     return new Promise(function(alrt_resolve, alrt_reject){
-        var result = {};
-        notifier.notify(opts,function(err, response){
-            result["err"] = err;
-            result["response"] = response;
-            alrt_reject(result);
-        });
+        notifier.notify(opts);
         alrt_resolve();
     })
-}
+};
+
+backend.shutdown = function(){
+    notifier.closeAll();
+};
