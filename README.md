@@ -46,7 +46,7 @@ var opts = {
 b.startup(opts)
 ```
 
-### 2 Shutting down the backend
+### 2 Shutdown
 
 Do not forget to shutdown the backend on application quit in order to release resources.
 Otherwise the application may not close successfully, and hence **may not show a window** on next invocation.
