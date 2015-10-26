@@ -35,6 +35,10 @@ backend.startup = function(opts){
     db.setDataPath(opts["datapath"]);
 };
 
+backend.saveToDb = function(dbname,obj){
+    db.saveToDb(dbname,obj);
+}
+
 backend.shutdown = function(){
     notifier.closeAll();
 };
