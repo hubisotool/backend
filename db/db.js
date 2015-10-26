@@ -24,10 +24,11 @@ _gut.setDataPath = function(path){
 };
 
 _gut.saveToDb = function(dbname,obj){
+    obj["_timestamp"] = moment().toISOString();
     db[dbname].insert(obj);
 }
 
 _gut.addAlert = function(alert){
-    alert["_iso8601_utc_timestamp"] = moment().toISOString();
+    alert["_timestamp"] = moment().toISOString();
     db.alerts.insert(alert);
 };
