@@ -39,6 +39,11 @@ backend.saveToDb = function(dbname,obj){
     db.saveToDb(dbname,obj);
 }
 
+backend.loadFromDb = function(dbname,func,opts){
+    return db.loadFromDb(dbname,func,opts);
+};
+
+
 backend.shutdown = function(){
     notifier.closeAll();
 };

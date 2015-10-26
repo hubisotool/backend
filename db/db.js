@@ -1,4 +1,5 @@
 var
+    Promise = require('bluebird'),
     dbstore = require("nedb"),
     path = require("path"),
     moment = require('moment'),
@@ -26,6 +27,14 @@ _gut.setDataPath = function(path){
 _gut.saveToDb = function(dbname,obj){
     obj["_timestamp"] = moment().toISOString();
     db[dbname].insert(obj);
+}
+
+_gut.loadFromDb = function(dbname,func,opts){
+    return new Promise(function(lfdb_resolve, lfdb_reject){
+        db[dbname][func](opts,function(err,docs){
+            lfdb_resolve(docs);
+        })
+    });
 }
 
 _gut.addAlert = function(alert){
