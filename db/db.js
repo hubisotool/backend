@@ -25,9 +25,13 @@ _gut.setDataPath = function(path){
 };
 
 _gut.saveToDb = function(dbname,obj){
-    obj["_timestamp"] = moment().toISOString();
-    db[dbname].insert(obj);
-}
+    return new Promise(function(stdb_resolve, stdb_reject){
+        obj["_timestamp"] = moment().toISOString();
+        db[dbname].insert(obj,function(err,newDoc){
+            stdb_resolve(newDoc);
+        });
+    })
+};
 
 _gut.loadFromDb = function(dbname,func,opts){
     return new Promise(function(lfdb_resolve, lfdb_reject){
