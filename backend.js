@@ -36,7 +36,7 @@ backend.startup = function(opts){
 };
 
 backend.saveToDb = function(dbname,obj){
-    db.saveToDb(dbname,obj);
+    return db.saveToDb(dbname,obj);
 }
 
 backend.loadFromDb = function(dbname,func,opts){
