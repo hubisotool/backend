@@ -39,7 +39,21 @@ _gut.loadFromDb = function(dbname,func,opts){
             lfdb_resolve(docs);
         })
     });
-}
+};
+
+//Must pass an array literal
+_gut.execInDb = function(dbname,func,args){
+    return new Promise(function(resolve, reject){
+        if(typeof args === "undefined"){
+            args=[{}];
+        }
+        var callback = function(err,docs){
+            resolve(docs);
+        };
+        args.push(callback);
+        db[dbname][func].apply(db[dbname],args);
+    });
+};
 
 _gut.addAlert = function(alert){
     alert["_timestamp"] = moment().toISOString();

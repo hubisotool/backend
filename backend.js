@@ -43,6 +43,10 @@ backend.loadFromDb = function(dbname,func,opts){
     return db.loadFromDb(dbname,func,opts);
 };
 
+backend.execInDb = function(dbname,func,args){
+    return db.execInDb(dbname,func,args);
+};
+
 
 backend.shutdown = function(){
     notifier.closeAll();
