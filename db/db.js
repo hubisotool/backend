@@ -3,7 +3,7 @@ var
     dbstore = require("nedb"),
     path = require("path"),
     moment = require('moment'),
-    dbs = ["alerts.db","dnr.db","cim.db"],
+    dbs = ["alerts","dnr","cim"],
     db = {},
     _gut = module.exports = {},
 
@@ -11,7 +11,7 @@ var
         var i, max, db_name, db_path;
         for(i = 0, max = dbs.length; i <max; i+=1){
             db_name = dbs[i];
-            db_path = path.join(dataPath, db_name);
+            db_path = path.join(dataPath, db_name+".db");
             db[db_name] = new dbstore({filename:db_path,autoload:true});
         }
     }
