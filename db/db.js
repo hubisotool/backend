@@ -3,19 +3,17 @@ var
     dbstore = require("nedb"),
     path = require("path"),
     moment = require('moment'),
-    dataPath = "",
-    alerts_db = "",
-    dnr_db = "",
+    dbs = ["alerts.db","dnr.db","cim.db"],
     db = {},
     _gut = module.exports = {},
 
     init_db = function(){
-        alerts_db = path.join(dataPath, 'alerts.db');
-        dnr_db = path.join(dataPath, 'dnr.db');
-        db = {
-            alerts : new dbstore({filename:alerts_db,autoload:true}),
-            dnr : new dbstore({filename:dnr_db,autoload:true})
-        };
+        var i, max, db_name, db_path;
+        for(i = 0, max = dbs.length; i <max; i+=1){
+            db_name = dbs[i];
+            db_path = path.join(dataPath, db_name);
+            db[db_name] = new dbstore({filename:db_path,autoload:true});
+        }
     }
 ;
 
