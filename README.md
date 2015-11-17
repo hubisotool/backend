@@ -83,7 +83,7 @@ The options you would like to pass to the function being exectuted. The validity
 
 Example:
 
-1. Loading all alerts from the db
+1 Loading all alerts from the db
 
 ```javascript
 var b = require("backend");
@@ -93,6 +93,36 @@ var func = "find"; // nedb Spec at https://github.com/louischatriot/nedb#basic-q
 var opts = {};
 
 b.loadFromDb(dbname,func,opts)
+.then(function(alerts){
+    console.log(alerts) // The alerts object contains all entries in the alerts db
+})
+```
+
+2 Loading alerts(Filtering by source) from the db
+
+```javascript
+var b = require("backend");
+
+var dbname = "alerts";
+var func = "find"; // nedb Spec at https://github.com/louischatriot/nedb#basic-querying
+var opts = {src:"Test Module 1"};
+
+b.loadFromDb(dbname,func,opts)
+.then(function(alerts){
+    console.log(alerts) // The alerts object contains all entries in the alerts db
+})
+```
+
+3 Loading alerts(Filtering by source) from the db using generic execInDb function
+
+```javascript
+var b = require("backend");
+
+var dbname = "alerts";
+var func = "find"; // nedb Spec at https://github.com/louischatriot/nedb#basic-querying
+var args = [{src:"Test Module 1"}]; // Pay attention, here args is an array literal of arguments passed to the above function
+
+b.execInDb(dbname,func,args)
 .then(function(alerts){
     console.log(alerts) // The alerts object contains all entries in the alerts db
 })
