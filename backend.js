@@ -2,6 +2,7 @@ var
     Promise = require('bluebird'),
     notifier = require('nw-notify'),
     db = require("./db/db"),
+    hubhb = require("hubhb"),
     backend = module.exports = {};
 
     notifier.setConfig({
@@ -47,7 +48,9 @@ backend.execInDb = function(dbname,func,args){
     return db.execInDb(dbname,func,args);
 };
 
+backend.hubhb = hubhb;
 
 backend.shutdown = function(){
     notifier.closeAll();
+    hubhb.destroy();
 };
