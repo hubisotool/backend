@@ -17,9 +17,9 @@
   "license": "N/A",
   "dependencies": {
     "bluebird": "^2.10.2",
-    "moment": "^2.10.6",
+    "hubhb": "git+https://hubiso@bitbucket.org/hubisotool/hubhb.git#0.0.0",
+    "moment": "^2.11.0",
     "nedb": "^1.2.1",
-    "nw-notify": "git://github.com/ghostfreak3000/nw-notify.git",
-    "hubhb":"git+https://hubiso@bitbucket.org/hubisotool/hubhb.git#0.0.0"
+    "nw-notify": "git://github.com/ghostfreak3000/nw-notify.git"
   }
 }
