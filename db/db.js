@@ -3,7 +3,7 @@ var
     dbstore = require("nedb"),
     path = require("path"),
     moment = require('moment'),
-    dbs = ["alerts","dnr","cim","config"],
+    dbs = ["alerts","dnr","cim","config","calendar"],
     db = {},
     _gut = module.exports = {},
 
